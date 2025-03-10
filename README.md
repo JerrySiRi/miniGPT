@@ -1,4 +1,4 @@
-# Daily learning of LLMs architecture using pytorch from scratch.
+# Daily learning of LLMs architecture and cutting-edge applications using pytorch from scratch.
 
 ## Day 1
 
