@@ -165,10 +165,13 @@ st.session_state.top_p = st.sidebar.slider("Top-P", 0.8, 0.99, 0.85, step=0.01)
 st.session_state.temperature = st.sidebar.slider("Temperature", 0.6, 1.2, 0.85, step=0.01)
 
 # 模型路径映射
+# 从不同的huggingface上的仓库下载
 MODEL_PATHS = {
     "MiniMind2-R1 (0.1B)": ["../MiniMind2-R1", "MiniMind2-R1"],
     "MiniMind2-Small-R1 (0.02B)": ["../MiniMind2-Small-R1", "MiniMind2-Small-R1"],
-    "MiniMind2 (0.1B)": ["../MiniMind2", "MiniMind2"],
+
+    "MiniMind2 (0.1B)": ["../trained_Minimind2", "MiniMind2"],
+
     "MiniMind2-MoE (0.15B)": ["../MiniMind2-MoE", "MiniMind2-MoE"],
     "MiniMind2-Small (0.02B)": ["../MiniMind2-Small", "MiniMind2-Small"],
     "MiniMind-V1 (0.1B)": ["../minimind-v1", "MiniMind-V1"],
