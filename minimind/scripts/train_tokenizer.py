@@ -1,24 +1,25 @@
+
 import random
 from tqdm import tqdm
 from transformers import AutoTokenizer
 import json
 from datasets import load_dataset
+
 from tokenizers import (
-    decoders,
-    models,
-    normalizers,
-    pre_tokenizers,
-    processors,
-    trainers,
-    Tokenizer,
+    decoders,         # 解码器：将 token ID 转回原始文本
+    models,           # 模型：如 BPE、WordPiece、Unigram 等 【tokenization 模型】
+    normalizers,      # 归一化器：对输入文本做 Unicode 规范化、转小写、去除符号等
+    pre_tokenizers,   # 预分词器：将文本切分为更小的块（如按空格或标点）
+    processors,       # 后处理器：处理分词结果，比如加上 [CLS] [SEP] 等特殊 token
+    trainers,         # 训练器：用于训练 tokenizer 的模块
+    Tokenizer,        # 主类：构建和运行 tokenizer 的核心对象
 )
 import os
 
 random.seed(42)
 
-
+# 读取JSONL文件并提取文本数据
 def train_tokenizer():
-    # 读取JSONL文件并提取文本数据
     def read_texts_from_jsonl(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             for line in f:
